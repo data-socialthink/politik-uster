@@ -18,7 +18,12 @@ In der Datei **Geschafte_Liste.csv** werden sämtliche auf der Webseite der Stad
 **LIZENZ:** Diese Daten unterstehen nicht dem Urheberrecht und sind Public Domain (siehe unten)
 
 ### Stichwörter
-dvdsvs
+Mit Hilfe des Stichwortverzeichnis (**stichwortliste.csv**) können die einzelnen Geschäfte automatisiert einem Politikfeld zugeordnet werden. Die Stichwortliste sowie die Politikfelder wurde ausgehend von einer Analyse sämtlicher in Titeln von Geschäften enthaltenen Wörter entwickelt. Es ist zu beachten, dass Begriffe teilweise mehrdeutig sind und eine auf dieser Stichwortliste basierende Analyse somit nur eine Annäherung darstellt.
+- Stichwort: Aus den Titeln abgeleitete Stichworte (nicht übertragbar auf andere Gemeinden, da teilweise lokaler Bezug)
+- Kategorie: Kategorisierung der Stichworte zu übergeordneten Themen
+- Politikfeld: Zuordnung der Stichworte zu den wichtigsten Politikfelder.
+
+**LIZENZ:** Diese Stichwortliste steht unter CC BY 4.0 (siehe unten) zur Verfügung.
 
 ### Gemeinderät:innen
 vsvsdvdsv
