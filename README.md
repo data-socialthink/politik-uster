@@ -12,8 +12,10 @@ In der Datei **Geschafte_Liste.csv** werden sämtliche auf der Webseite der Stad
 - Geschäft: Titel des Geschäfts
 - URL: URL zum Eintrag auf der Webseite
 - Date: offizielles Datum des Geschäfts (im Format yyyy-mm-dd, identisch mit Datum)
-
+ 
 *Beachte, dass Geschäfte bis zum Februar 2015 teilweise mehrfach verzeichnet sind. Beispielsweise wurden Antworten des Stadtrats auf Anfragen oder "Berichte und Anträge" zu Motionen jeweils als neue Geschäfte in der diesem Datensatz zugrundeliegenden Verzeichnis aufgenommen.*
+
+**LIZENZ:** Diese Daten unterstehen nicht dem Urheberrecht und sind Public Domain (siehe unten)
 
 ### Stichwörter
 dvdsvs
