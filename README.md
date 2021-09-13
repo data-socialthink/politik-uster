@@ -1,4 +1,4 @@
-# Rohdaten Politikanalyse Uster
+# Politikanalyse Uster
 
 ## Programm
 
