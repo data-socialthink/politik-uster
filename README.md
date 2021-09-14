@@ -5,7 +5,7 @@
 
 ## Datensätze
 ### Gemeinderatsgeschäfte
-In der Datei **Geschafte_Liste.csv** werden sämtliche auf der Webseite der Stadt Uster publizierten Gemeinderatsgeschäfte aufgeführt. Diese werden 1x täglich mit einem Script von der Webseite gelesen (sogenanntes Web Scraping oder Web Harvesting). Folgende Daten stehen zur Verfügung:
+In der Datei **geschafte.csv** werden sämtliche auf der Webseite der Stadt Uster publizierten Gemeinderatsgeschäfte aufgeführt. Diese werden 1x täglich mit einem Script von der Webseite gelesen (sogenanntes Web Scraping oder Web Harvesting). Folgende Daten stehen zur Verfügung:
 - Nummer: offizielle Nummer des Geschäfts
 - Datum: offizielles Datum des Geschäfts (im Format dd.mm.yyyy)
 - Art: Art des Geschäfts
