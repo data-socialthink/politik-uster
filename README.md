@@ -31,8 +31,8 @@ In der Datei gr_liste.csv werden ehemalige und aktive Gemeinderät:innen aufgef�
 - Name
 - Fraktion (aktuell oder bei Austritt aus dem Gemeinderat)
 - Partei (aktuell oder bei Austritt aus dem Gemeinderat)
-- von (Eintritt in Gemeinderat, falls vor Erfassungszeitraum (2006) wird der Wer 1 angegeben
-- bis (Austritt aus dem Gemeinderat)
+- von (Eintritt in Gemeinderat, wenn unbekannt wird 1970-01-01 angegeben)
+- bis (Austritt aus dem Gemeinderat, tatsächliches Austrittsdatum wenn ausgetreten, ansonsten Ende der Amtszeit)
 - aktiv (ob aktiv oder ehemalig)
 - twitter (Twitter-Account oder Twitter der Partei)
 
