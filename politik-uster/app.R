@@ -5,7 +5,6 @@ library(fmsb)
 library(dplyr)
 
 
-
 ## Daten-Import ======================
 
 ## Daten von Github
@@ -17,16 +16,17 @@ Stichwortliste <- read.csv("https://raw.githubusercontent.com/data-socialthink/p
 
 # Auswahlliste GR Politikfeldanalyse
 liste_gr_auswahl <- paste0(GR_Liste$Vorname," ",GR_Liste$Name," (",GR_Liste$Partei,")")
-liste_gr_auswahl <- as.data.frame(cbind(liste_gr_auswahl,1:81,GR_Liste$aktiv))
-liste_gr_auswahl_sort <- sort(liste_gr_auswahl)
-liste_gr_auswahl_aktiv <- filter(liste_gr_auswahl_sort, V3=="aktiv")
-liste_gr_auswahl_ehemalig <- filter(liste_gr_auswahl_sort, V3=="ehemalig")
+liste_gr_auswahl <- as.data.frame(cbind(liste_gr_auswahl,c(1:length(liste_gr_auswahl)),as.character(GR_Liste$aktiv)))
+liste_gr_auswahl_sort <- dplyr::arrange(liste_gr_auswahl, liste_gr_auswahl)
 
-gr_auswahl_aktiv <- as.list(liste_gr_auswahl_aktiv$V2)
-names(gr_auswahl_aktiv) <- liste_gr_auswahl_aktiv$liste_gr_auswahl
+liste_gr_auswahl_aktiv <- dplyr::filter(liste_gr_auswahl_sort, V3=="aktiv")
+liste_gr_auswahl_ehemalig <- dplyr::filter(liste_gr_auswahl_sort, V3=="ehemalig")
 
-gr_auswahl_ehemalig <- as.list(liste_gr_auswahl_ehemalig$V2)
-names(gr_auswahl_ehemalig) <- liste_gr_auswahl_ehemalig$liste_gr_auswahl
+gr_auswahl_aktiv <- as.list(as.vector(liste_gr_auswahl_aktiv$V2))
+names(gr_auswahl_aktiv) <- as.character(liste_gr_auswahl_aktiv$liste_gr_auswahl)
+
+gr_auswahl_ehemalig <- as.list(as.vector(liste_gr_auswahl_ehemalig$V2))
+names(gr_auswahl_ehemalig) <- as.character(liste_gr_auswahl_ehemalig$liste_gr_auswahl)
 
 gr_auswahl <- list(`aktive`=gr_auswahl_aktiv,
                    `ehemalige`=gr_auswahl_ehemalig
@@ -121,7 +121,46 @@ server <- function(input, output) {
     
     
     ## Politikfeld ==============       
-    data_dimensionen <- read.csv("https://raw.githubusercontent.com/data-socialthink/politik-uster/main/politikfeldanalyse.csv")
+    # Funktion laden
+    `%likeic%` <- function (x, pattern) { 
+        grepl(pattern, x, ignore.case=TRUE)
+    }
+    
+    # Daten laden
+    GR_Liste <- GR_Liste
+    Geschafte_Liste <- Geschafte_Liste
+    Geschafte_alle <- data.table(Geschafte_Liste[,4])
+    Stichwortliste <- as.data.table(Stichwortliste)
+    
+    # Variablen anlegen
+    anzahl_gr <- dim(GR_Liste)[1]
+    anzahl_dimensionen <- dim(table(Stichwortliste$Politikfeld))
+    
+    data_dimensionen <- as.data.frame(matrix(0,anzahl_gr,anzahl_dimensionen))
+    colnames(data_dimensionen) <- names(table(Stichwortliste$Politikfeld))
+    rownames(data_dimensionen) <- paste0(GR_Liste$Vorname," ",GR_Liste$Name)
+    
+    suche <- matrix(0,anzahl_dimensionen,2)
+    for(i in 1:anzahl_dimensionen){
+        dimensions_name <- names(table(Stichwortliste$Politikfeld)[i])
+        suche[i,1] <- dimensions_name
+        resultat <- "xyzwirdnichtberücksichtigt"
+        for(ii in 1:dim(Stichwortliste[Politikfeld %like% dimensions_name])[1]){
+            resultat <- paste0(resultat,"|",as.character(Stichwortliste[Politikfeld %like% dimensions_name][ii,1]$Stichwort))
+        }
+        suche[i,2] <- resultat
+    }
+    
+    # Loop
+    for (i in 1:anzahl_gr){
+        geschafte_loop <- Geschafte_alle[V1 %like% rownames(data_dimensionen)[i]]
+        
+        for(ii in 1:anzahl_dimensionen){
+            dimensions_name <- suche[ii,1]
+            dimensions_begriffe <- suche[ii,2]
+            data_dimensionen[i,ii] <- dim(geschafte_loop[V1 %likeic% dimensions_begriffe])[1]
+        }
+    }
     
     # Plot
     
