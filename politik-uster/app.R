@@ -96,9 +96,15 @@ ui <- fluidPage(
                                             #radioButtons("radio_sna_legislatur", h4("Legislatur"),
                                             #             choices = list("ALLE" = 1, "2018-2022" = 2,
                                             #                            "2014-2018" = 3, "2010-2014" = 4),selected = 1),
-                                            radioButtons("radio_sna_cluster", h4("Cluster-Analysen"),
+                                            
+                                            dateRangeInput('dateRange',
+                                                           label = 'Welcher Zeitraum soll berücksichtigt werden?',
+                                                           start = "2018-05-01" , end = "2022-05-01"
+                                            ),
+                                            radioButtons("radio_sna_cluster", "Welche Methode zur Cluster-Bildung soll verwendet werden?",
                                                          choices = list("Louvain Community Detection" = 1, "Infomap" = 2,
-                                                                        "Edge betweenness" = 3),selected = 1)
+                                                                        "Edge betweenness" = 3),selected = 1),
+                                            HTML("<br><b>Erklärung Analysemethode:</b><br>Es wird jeweils analysiert, welche Personen gemeinsam parlamentarische Instrumente nutzten (z.B. eine Anfrage einreichen). Aus dieser Information kann ein gemeinsames poltisches Interesse und Handeln abgeleitet werden, welches zur Netzwerkanalyse und Clusterbildung genutzt wird. Personen die ihre parlamentatischen Instrumente mit niemand anderem nutzen, werden aus der Analyse ausgeschlossen.")
                                         )),
                                         column(8,
                                                plotOutput("plot_sna")
@@ -199,34 +205,44 @@ server <- function(input, output) {
     
     
     # Daten laden
-    GR_Liste <- GR_Liste
-    GR_Liste_aktiv <- dplyr::filter(GR_Liste, aktiv=="aktiv")
-    #GR_Liste_aktiv <- GR_Liste
-    Geschafte_Liste <- Geschafte_Liste
-    Geschafte_alle <- data.table(Geschafte_Liste[,4])
+    GR_Liste$von <- as.Date(GR_Liste$von)
+    GR_Liste$bis <- as.Date(GR_Liste$bis)
     
-    # Variablen anlegen ====
-    netzwerk_dimension <- dim(GR_Liste_aktiv)[1]
-    netzwerk_matrix <- matrix(0,netzwerk_dimension,netzwerk_dimension)
-    colnames(netzwerk_matrix) <- paste0(GR_Liste_aktiv$Vorname,"\n",GR_Liste_aktiv$Name)
-    rownames(netzwerk_matrix) <- paste0(GR_Liste_aktiv$Vorname,"\n",GR_Liste_aktiv$Name)
     
-    # Loop / Auswertung ======
-    for (i in 1:netzwerk_dimension) {
-        geschafte_loop <- Geschafte_alle[V1 %like% paste0(GR_Liste_aktiv$Vorname[i]," ",GR_Liste_aktiv$Name[i])]
-        
-        for (ii in 1:netzwerk_dimension) {
-            netzwerk_matrix[i,ii] <- dim(geschafte_loop[V1 %like% paste0(GR_Liste_aktiv$Vorname[ii]," ",GR_Liste_aktiv$Name[ii])])[1]
-        }
-        
-    }
-    
-    # igraph  ======
-    network <- graph_from_adjacency_matrix(netzwerk_matrix , mode='upper', weighted = T, diag=F)
-    
-    # Plot
     
     output$plot_sna <- renderPlot({
+        
+        #GR_Liste_aktiv <- GR_Liste %>% dplyr::filter(aktiv=="aktiv")
+        #GR_Liste_aktiv <- GR_Liste %>% dplyr::filter(bis>="2018-05-2018") %>% dplyr::filter(von<="2022-05-07")
+        GR_Liste_aktiv <- GR_Liste
+        
+        Geschafte_Liste$Date <- as.Date(Geschafte_Liste$Date)
+        Geschafte_Liste_filter <- Geschafte_Liste %>% dplyr::filter(Date >= input$dateRange[1]) %>% dplyr::filter(Date <= input$dateRange[2])
+        
+        Geschafte_alle <- data.table(Geschafte_Liste_filter[,4])
+        
+        
+        
+        # Variablen anlegen ====
+        netzwerk_dimension <- dim(GR_Liste_aktiv)[1]
+        netzwerk_matrix <- matrix(0,netzwerk_dimension,netzwerk_dimension)
+        colnames(netzwerk_matrix) <- paste0(GR_Liste_aktiv$Vorname,"\n",GR_Liste_aktiv$Name)
+        rownames(netzwerk_matrix) <- paste0(GR_Liste_aktiv$Vorname,"\n",GR_Liste_aktiv$Name)
+        
+        # Loop / Auswertung ======
+        for (i in 1:netzwerk_dimension) {
+            geschafte_loop <- Geschafte_alle[V1 %like% paste0(GR_Liste_aktiv$Vorname[i]," ",GR_Liste_aktiv$Name[i])]
+            
+            for (ii in 1:netzwerk_dimension) {
+                netzwerk_matrix[i,ii] <- dim(geschafte_loop[V1 %like% paste0(GR_Liste_aktiv$Vorname[ii]," ",GR_Liste_aktiv$Name[ii])])[1]
+            }
+            
+        }
+        
+        # igraph  ======
+        network <- graph_from_adjacency_matrix(netzwerk_matrix , mode='upper', weighted = T, diag=F)
+        
+        # Plot
         
         if (input$radio_sna_cluster == 1)  {
             network_plot <- delete.isolates(network)
