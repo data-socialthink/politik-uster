@@ -72,7 +72,7 @@
 "Peter","Müller","FDP_CVP","FDP",1970-01-01,2022-07-31,"aktiv","@fdp_uster"
 "Ali","Özcan","SP","SP",1970-01-01,2022-07-31,"aktiv","#SP Uster"
 "Andreas","Pauling","GLP_EVP","GLP",1970-01-01,2022-07-31,"aktiv","#glp Uster"
-"Mary","Rauber","GLP_EVP","EVP",1970-01-01,2022-07-31,"aktiv","@rauber_mary"
+"Mary","Rauber","GLP_EVP","EVP",1970-01-01,2021-03-31,"ehemalig","@rauber_mary"
 "Ulrich","Schmid","FDP_CVP","CVP",1970-01-01,2022-07-31,"aktiv","@fdp_uster"
 "Florin","Schütz","SP","SP",1970-01-01,2022-07-31,"aktiv","@florinschuetz"
 "Paul","Stopper","BPU","BPU",1970-01-01,2022-07-31,"aktiv","#BPU"
@@ -80,3 +80,5 @@
 "Markus","Wanner","SP","SP",1970-01-01,2022-07-31,"aktiv","#SP Uster"
 "Marius","Weder","SP","SP",1970-01-01,2022-07-31,"aktiv","#SP Uster"
 "Angelika","Zarotti","SP","SP",1970-01-01,2022-07-31,"aktiv","#SP Uster"
+"Urs","Lüscher","GLP_EVP","EVP",2021-04-01,2022-07-31,"aktiv","#EVP Uster"
+
