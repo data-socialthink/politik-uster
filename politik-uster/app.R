@@ -111,7 +111,7 @@ ui <- fluidPage(
         ),
         column(3,
                HTML("<b>About</b><br>Dieses kommunale Politikbarometer ist ein privates Projekt von Andreas Wyss, es handelt sich um technische und statistische Spielereien anhand der auf der Webseite uster.ch verfügbaren Daten zu den Gemeinderatsgeschäften.
-                    <br><br><b>Lizenzen</b>")
+                    <br><br><b>Lizenzen</b><br>Die Daten stehen unter Public Domain (Verzeichnis Gemeinderatsgeschäfte) resp. CC BY 4.0 (Stichwortliste und Verzeichnis Gemeinderät:innen). Die Software wird unter einer MIT-Lizenz zur Verfügung gestellt.")
         )
     )
 )
