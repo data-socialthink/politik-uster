@@ -1,7 +1,7 @@
 # Politikanalyse Uster
 
 ## Programm
-
+Unter [srv.socialthink.net/app/uster-politik](https://srv.socialthink.net/app/uster-politik) steht ein kommunaler Politikbarometer mit einer Politikfeld- sowie einer Netzwerkanalyse zur Verfügung. Auch kann das Tool über [socialthink.shinyapps.io/politik-uster/](https://socialthink.shinyapps.io/politik-uster/) genutzt werden. Das Programm ist in der [Statistiksprache R](https://de.wikipedia.org/wiki/R_(Programmiersprache)) geschrieben und wir auf einem Shiny-Server zur Verfügung gestellt. Das Programm steht unter einer MIT-Lizenz zur Verfügung, der Quellcode findest du hier: https://github.com/data-socialthink/politik-uster/tree/main/politik-uster
 
 ## Datensätze
 ### Gemeinderatsgeschäfte
