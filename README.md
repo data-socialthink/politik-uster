@@ -1,11 +1,13 @@
 # Politikanalyse Uster
 
 ## Programm
-Unter [srv.socialthink.net/app/uster-politik](https://srv.socialthink.net/app/uster-politik) steht ein kommunaler Politikbarometer mit einer Politikfeld- sowie einer Netzwerkanalyse zur Verfügung. Auch kann das Tool über [socialthink.shinyapps.io/politik-uster/](https://socialthink.shinyapps.io/politik-uster/) genutzt werden. Das Programm ist in der [Statistiksprache R](https://de.wikipedia.org/wiki/R_(Programmiersprache)) geschrieben und wir auf einem Shiny-Server zur Verfügung gestellt. Das Programm steht unter einer MIT-Lizenz zur Verfügung, der Quellcode findest du hier: https://github.com/data-socialthink/politik-uster/tree/main/politik-uster
+Unter [politikbarometer.shinyapps.io/uster/](https://politikbarometer.shinyapps.io/uster/) steht ein kommunaler Politikbarometer mit einer Politikfeld- sowie einer Netzwerkanalyse zur Verfügung. Das Programm ist in der [Statistiksprache R](https://de.wikipedia.org/wiki/R_(Programmiersprache)) geschrieben und wir auf einem Shiny-Server zur Verfügung gestellt.
+
+**LIZENZ:** Das Programm steht unter [GPLv3](https://github.com/data-socialthink/politik-uster/blob/main/politik-uster/License) zur Verfügung, der Quellcode findest du hier: https://github.com/data-socialthink/politik-uster/tree/main/politik-uster
 
 ## Datensätze
 ### Gemeinderatsgeschäfte
-In der Datei [**geschafte.csv**](https://github.com/data-socialthink/politik-uster) werden sämtliche auf der Webseite der Stadt Uster publizierten Gemeinderatsgeschäfte aufgeführt. Diese werden 1x täglich mit einem Script von der Webseite gelesen (sogenanntes Web Scraping oder Web Harvesting). Folgende Daten stehen zur Verfügung:
+In der Datei [**geschafte.csv**](https://github.com/data-socialthink/politik-uster/blob/main/geschafte.csv) werden sämtliche auf der Webseite der Stadt Uster publizierten Gemeinderatsgeschäfte aufgeführt. Diese werden 1x täglich mit einem Script von der Webseite gelesen (sogenanntes Web-Scraping oder Web-Harvesting). Folgende Daten stehen zur Verfügung:
 - Nummer: offizielle Nummer des Geschäfts
 - Datum: offizielles Datum des Geschäfts (im Format dd.mm.yyyy)
 - Art: Art des Geschäfts
@@ -44,10 +46,10 @@ In der Datei gr_liste.csv werden ehemalige und aktive Gemeinderät:innen aufgef�
 Gemäss Bundesgesetz über das Urheberrecht und verwandte Schutzrechte sind Gesetze, Verordnungen, Entscheidungen, Protokolle und Berichte von Behörden und öffentlichen Verwaltungen sowie andere amtliche Erlasse nicht urheberrechtlich geschützt (URG Art. 5 Abs. 1). Der Datensatz der Gemeinderatsgeschäfte steht daher zur freien Verwendung zur Verfügung.
 
 ### Creative Commons Attribution 4.0 (CC BY 4.0)
-Unter [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.de) lizenzierte Daten dürfen geteilt und bearbeitet werden und zwar für beliebige Zwecke, sogar kommerziell. Dabei muss die Quelle angegeben  (Namensnennung) und es müssen angemessene Urheber- und Rechteangaben gemacht werden. Es ist Link zur Lizenz beizufügen und anzugeben, ob Änderungen vorgenommen wurden.
+Unter [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.de) lizenzierte Daten dürfen geteilt und bearbeitet werden und zwar für beliebige Zwecke, sogar kommerziell. Dabei muss die Quelle angegeben  (Namensnennung) und es müssen angemessene Urheber- und Rechteangaben gemacht werden. Es ist ein Link zur Lizenz beizufügen und anzugeben, ob Änderungen vorgenommen wurden. Die Daten, sofern sie nicht unter Public Domain fallen, stehen unter CC BY 4.0 zur Verfügung.
 
-### MIT - Lizenz
-
+### GNU GENERAL PUBLIC LICENSE Version 3
+Der Programmcode des Politbarometers steht unter GNU GENERAL PUBLIC LICENSE Version 3. Diese Lizenz gewährt das Recht, die Software auszuführen, zu ändern und zu verbreiten. Aus diesem Programmcode abgeleitetete Software muss unter den gleichen Bedingungen zugänglich sein. Details zur Lizenz findest du im [Lizenztext](https://github.com/data-socialthink/politik-uster/blob/main/politik-uster/License).
 
 
 
