@@ -8,6 +8,7 @@ library(shinythemes)
 library(tm)
 library(wordcloud)
 library(RColorBrewer)
+library(stringr)
 
 
 ## Daten-Import ======================
@@ -16,6 +17,11 @@ library(RColorBrewer)
 GR_Liste <- read.csv("https://raw.githubusercontent.com/data-socialthink/politik-uster/main/gr_liste.csv")
 Geschafte_Liste <- read.csv("https://raw.githubusercontent.com/data-socialthink/politik-uster/main/geschafte.csv")
 Stichwortliste <- read.csv("https://raw.githubusercontent.com/data-socialthink/politik-uster/main/stichwortliste.csv")
+
+# Daten-Votbereitung ==================
+
+#Namensänderung Barbara Keel --> Barbara Schäufele-Keel 
+Geschafte_Liste$Geschäft <- str_replace_all(Geschafte_Liste$Geschäft, "Barbara Keel", "Barbara Schäufele-Keel") 
 
 # Diverse Kalkulationen ================
 
