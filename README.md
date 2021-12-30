@@ -37,6 +37,7 @@ In der Datei gr_liste.csv werden ehemalige und aktive Gemeinderät:innen aufgef�
 - bis (Austritt aus dem Gemeinderat, tatsächliches Austrittsdatum wenn ausgetreten, ansonsten Ende der Amtszeit)
 - aktiv (ob aktiv oder ehemalig)
 - twitter (Twitter-Account oder Twitter der Partei)
+- Bemerkungen zum Eintrag
 
 **LIZENZ:** Diese Stichwortliste steht unter CC BY 4.0 (siehe unten) zur Verfügung.
 
