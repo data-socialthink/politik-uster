@@ -11,6 +11,7 @@ library(RColorBrewer)
 library(stringr)
 
 
+
 ## Daten-Import ======================
 
 ## Daten von Github
