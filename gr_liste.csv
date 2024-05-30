@@ -61,7 +61,7 @@
 "Silvio","Foiera","SVP_EDU","EDU","1970-01-01","2026-07-31","aktiv","@SilFoiera",""
 "Patricio","Frei","GP","GP","1970-01-01","2026-07-31","aktiv","@GrueneUster",""
 "Marco","Ghelfi","GP","GP","1970-01-01","2026-07-31","aktiv","@GrueneUster",""
-"Andrea","Grob","FDP_MITTE","FDP","1970-01-01","2026-07-31","aktiv","@fdp_uster",""
+"Andrea","Grob","FDP_MITTE","FDP","1970-01-01","2024-01-31","ehemalig","@fdp_uster",""
 "Barbara","Schäufele-Keel","SVP_EDU","SVP","1970-01-01","2023-05-16","ehemalig","@SVPUster","Namen nach Hochzeit angepasst. Achtung, in Geschäften vor Hochzeit weiterhin der Ledig-Namen (Barbara Keel)."
 "Hans","Keel","SVP_EDU","SVP","1970-01-01","2022-05-08","ehemalig","@SVPUster",""
 "Christoph","Keller","SVP_EDU","SVP","1970-01-01","2026-07-31","aktiv","@SVPUster",""
@@ -93,3 +93,4 @@
 "Dieter","Hohmann","SVP_EDU","SVP","2023-05-17","2026-07-31","aktiv","@SVPUster",""
 "Adam","Lukas","GP","GP","2024-04-01","2026-07-31","aktiv","@GrueneUster",""
 "Peter","Mathis","SP","SP","2023-10-01","2026-07-31","aktiv","#SP Uster",""
+"Simon","Vlk","FDP_MITTE","FDP","2024-02-01","2026-07-31","aktiv","@fdp_uster",""
